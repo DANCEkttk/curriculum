@@ -67,6 +67,7 @@ public class Main {
 //	    <以下記述>
             ArrayList<Integer> Datelist = new  ArrayList<Integer>(arrayDate.length);
 
+
 //      問⑨ 上記で格納した要素を繰り返しで出力しましょう。
 //	    <以下記述>
     for (int i : arrayDate) {
