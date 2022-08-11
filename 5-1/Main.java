@@ -4,6 +4,7 @@ import java.util.Calendar;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Iterator;
 
 public class Main {
 
@@ -62,21 +63,19 @@ public class Main {
            arrayDate[1] = cal.get(Calendar.MONTH) + 1;
            arrayDate[2] = cal.get(Calendar.DATE);
 
-           System.out.println(arrayDate[0]);
-           System.out.println(arrayDate[1]);
-           System.out.println(arrayDate[2]);
-
 //      問⑧ 配列arrayDateをList型に変更しましょう。
 //	    <以下記述>
-           ArrayList<Integer> Datelist = new ArrayList<>(arrayDate.length);
+            ArrayList<Integer> Datelist = new  ArrayList<Integer>(arrayDate.length);
 
 //      問⑨ 上記で格納した要素を繰り返しで出力しましょう。
 //	    <以下記述>
-        for (int l1 : Datelist) {
-            System.out.println(l1);
+    for (int i : arrayDate) {
+            Datelist.add(i);
         }
+    Datelist.forEach(System.out::println);
+    
+}
 
-		}
 	}
 
 }
