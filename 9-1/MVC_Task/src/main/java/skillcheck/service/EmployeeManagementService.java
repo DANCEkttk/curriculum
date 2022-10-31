@@ -187,8 +187,8 @@ public final class EmployeeManagementService extends BaseService implements Empl
                 // Tips1: ループ文を使用すること（正解は複数パターンあります）
                 // Tips2: 格納先はローカル変数のempとすること
                 // [ここへ記述]
-            	int size = pEmployeeBeanList.size();
-            	for(int i = 0; i < size; i++)
+            	
+            	for(int i = 0; i < pEmployeeBeanList.size(); i++)
             	{
             	    emp = pEmployeeBeanList.get(i);
             	}
@@ -205,9 +205,10 @@ public final class EmployeeManagementService extends BaseService implements Empl
                     // 2. 1で作成したオブジェクトをpreparedStatementへ格納
                     // Tips: sbQueryは、sbQuery.toString()でStringへ変換
                     // [ここへ記述]
+        		    String idsele = sbQuery.toString();
 
-        		    preparedStatement = connection.prepareStatement(ConstSQL.SELECT_BY_EMPID);
-        		    sbQuery.toString();
+        		    preparedStatement = connection.prepareStatement(idsele);
+
                     
 
                     // LIKEを使用するため、パラメータを編集

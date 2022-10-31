@@ -12,10 +12,12 @@ import javax.servlet.http.HttpSession;
 import skillcheck.bean.EmployeeBean;
 import skillcheck.bean.ResponseBean;
 import skillcheck.constant.ConstMessage;
+import skillcheck.dao.EmployeeDao.ExecuteCase;
 import skillcheck.exception.MVCException;
 import skillcheck.logger.Logger;
 import skillcheck.service.EmployeeManagementService;
 import skillcheck.util.PasswordHashUtil;
+
 
 /**
  * サーブレット: 親クラス
@@ -30,7 +32,7 @@ public abstract class BaseServlet extends HttpServlet {
 
     // FIXME Step-3: 定数定義
     // FIXME Step-3-1: リクエスト判別用のボタンの属性名を記述しなさい。ok
-    protected static final String CONST_ELEMENT_NAME_REQUEST = "requestStatus";
+    protected static final String CONST_ELEMENT_NAME_REQUEST = "requestType";
     protected static final String CONST_REQUST_KEY_FOR_SENDER = "sender";
     protected static final String CONST_REQUST_KEY_FOR_REDIRECT = "redirect";
     protected static final String CONST_REQUST_KEY_FOR_RESPONSE_BEAN = "responseBean";
@@ -48,6 +50,7 @@ public abstract class BaseServlet extends HttpServlet {
     protected ResponseBean responseBean;
     /** 社員情報サービス */
     protected EmployeeManagementService ems;
+    
 
     /**
      * コンストラクタ
@@ -151,13 +154,15 @@ public abstract class BaseServlet extends HttpServlet {
             // Tips2: 完全一致検索の社員情報取得を呼び出すこと
             // Tips3: 第二引数の渡し方に注意すること
             // ←ここへ記述
+        	
+        	EmployeeBean eId = new EmployeeBean(reqEmpId);
+        	ems = new EmployeeManagementService();
 
-        	responseBean = ems.getEmployeeData(null);
         	
         	
+        	responseBean = ems.getEmployeeData(ExecuteCase.FIND_BY_EMPID, eId);    	
+        	     	
         	
-        	
-
             // 最初の1件を取得
             resEmployeeBean = responseBean.getEmplyeeBeanList().stream().findFirst().orElse(null);
 

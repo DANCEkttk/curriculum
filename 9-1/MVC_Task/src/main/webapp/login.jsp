@@ -94,7 +94,7 @@
         
                     <div>
                     <label  class="error-label">
-                     massage
+                     <%=message%>
                      </label>
 
                     </div>
@@ -106,11 +106,11 @@
         <form action="/MVC_Task/employee" method="post">
             <div class="div-input-flex-area">
                 <div>
-                    <label>社員番号　: </label>
+                    <label>社員番号　： </label>
                     <input id="empId" type="text" name="empId" maxlength="5" value="<%=empId%>"><br>
                 </div>
                 <div>
-                    <label>パスワード: </label>
+                    <label>パスワード： </label>
                     <input id="password" type="password" name="password"><br>
                 </div>
             </div>

@@ -169,7 +169,7 @@ public final class EmployeeManagementController extends BaseServlet {
             // Tips1: リクエストへレスポンス情報をセット
             // Tips2: キー名は「CONST_REQUST_KEY_FOR_RESPONSE_BEAN」使用
             // [ここへ記述]
-            request.setAttribute("ResponseBean", responseBean);
+            request.setAttribute("CONST_REQUST_KEY_FOR_RESPONSE_BEAN", responseBean);
 
             Logger.log(new Throwable(), "遷移先 = " + this.destinationTarget);
 
